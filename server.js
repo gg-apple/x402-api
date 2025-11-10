@@ -36,10 +36,11 @@ app.get('/health', (req, res) => {
   res.send('x402 API Running — Ready for AI Agents!');
 });
 
-const server = createServer(app);
-server.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
   console.log('x402 Passive Income API Running!');
-  console.log('http://localhost:3000');
+  console.log(`http://localhost:${PORT}`);
   console.log('Test: curl -X POST http://localhost:3000/note-paid -d "{\"note\":\"test\"}" -H "Content-Type: application/json"');
   console.log('Expected: 402 response with payment link (until paid)');
+
 });
